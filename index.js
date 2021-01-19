@@ -1,9 +1,10 @@
-const { getBinary, formatInput, encode } = require('./modules');
-const testInput = 'FRED';
+const { getBinary, formatInput, encode, formatOutput } = require('./modules');
+const testInput = '....';
 
 function encoder(str) {
   const binaries = getBinary(str);
   const formattedInput = formatInput(binaries);
-  return encode(formattedInput);
+  const arr = encode(formattedInput);
+  return formatOutput(arr);
 }
 console.log(encoder(testInput));

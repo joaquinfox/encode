@@ -55,7 +55,7 @@ function encode(arr) {
     [row7 + ',' + row8],
   ];
 }
-console.log(encode(testInput));
+// console.log(encode(testInput));
 
 const testInput2 = [
   ['0,0,0,0,1,1,1,1'],
@@ -79,6 +79,30 @@ const getBinary = (str) => {
 
 let binaries = getBinary('FRED');
 
+const testInput3 = [
+  ['0,0,0,0,1,1,1,1'],
+  ['0,0,0,0,0,0,1,0'],
+  ['0,0,0,0,1,1,0,1'],
+  ['0,0,1,1,0,1,0,0'],
+];
+const formatOutput = (arr) => {
+  let container = [];
+  for (let i = 0; i < arr.length; i++) {
+    //Get rid of commas
+    arr[i] = arr[i].toString().replace(/,/g, '');
+    // Get html value
+    arr[i] = parseInt(arr[i], 2);
+    // Get hexadecimal values
+    arr[i] = arr[i].toString(16);
+    // Zero padding
+    if (arr[i].length < 2) {
+      arr[i] = '0' + arr[i];
+    }
+    container.push(arr[i]);
+  }
+  return parseInt(arr.join(''), 16);
+};
+console.log(formatOutput(testInput3));
 /*
 x = output array      y = input array   z = input array element
 
