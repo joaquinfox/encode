@@ -1,0 +1,4 @@
+Time taken to complete part 1: 2
+Expected hourly rate: $35
+Email address: joaquin.fox@gmail.com
+Challenge response: 267924030
