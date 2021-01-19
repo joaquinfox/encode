@@ -1,17 +1,37 @@
 module.exports = {
   getBinary: (str) => {
+    // Zero pad input string
+    if (str.length < 4) {
+      let n = str.length;
+      while (n < 4) {
+        str = '0' + str;
+        n++;
+      }
+    }
+    console.log(str);
     // Reverse string
     str = str.split('').reverse().join('');
+    console.log(str);
     // Get charCodes and binary values
     let binaries = [];
     for (let i in str) {
       let binary = str[i].charCodeAt().toString(2);
-      console.log(binary);
-      binaries.push(binary.length < 8 ? '0' + binary : binary);
+
+      // Zero pad binary
+      if (binary.length < 8) {
+        let n = binary.length;
+        while (n < 8) {
+          binary = '0' + binary;
+          n++;
+        }
+      }
+      // zeroPad(binary);
+      binaries.push(binary);
+      // console.log(binary);
     }
-    console.log('original binaries', binaries);
     return binaries;
   },
+
   formatInput: (arr) => {
     // Separate elements
     const output = [];
@@ -19,7 +39,7 @@ module.exports = {
       arr[i] = arr[i].split('');
       output.push(arr[i]);
     }
-    // console.log('formatInput', output);
+    // console.log(output);
     return output;
   },
   encode: (arr) => {
@@ -60,26 +80,33 @@ module.exports = {
         }
       }
     }
-    return [
+    const output = [
       [row1 + ',' + row2],
       [row3 + ',' + row4],
       [row5 + ',' + row6],
       [row7 + ',' + row8],
     ];
+    // console.log('encoded output', output);
+    return output;
   },
   formatOutput: (arr) => {
+    // console.log(arr);
     let container = [];
     for (let i = 0; i < arr.length; i++) {
       //Get rid of commas
       arr[i] = arr[i].toString().replace(/,/g, '');
+      // console.log('no commas', arr[i]);
       // Get html value
       arr[i] = parseInt(arr[i], 2);
+      // console.log('html', arr[i]);
       // Get hexadecimal values
       arr[i] = arr[i].toString(16);
+      // console.log('toString', arr[i]);
       // Zero padding
       if (arr[i].length < 2) {
         arr[i] = '0' + arr[i];
       }
+      // console.log('zero pad', arr[i]);
       container.push(arr[i]);
     }
     return parseInt(arr.join(''), 16);

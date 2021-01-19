@@ -102,7 +102,22 @@ const formatOutput = (arr) => {
   }
   return parseInt(arr.join(''), 16);
 };
-console.log(formatOutput(testInput3));
+// console.log(formatOutput(testInput3));
+
+const zeroPad = (str) => {
+  if (str.length < 8) {
+    let n = str.length;
+    while (n < 8) {
+      str = str += '0';
+      n++;
+    }
+    return str;
+  }
+
+  return str;
+};
+
+console.log(zeroPad('c'));
 /*
 x = output array      y = input array   z = input array element
 
