@@ -4,7 +4,7 @@ module.exports = {
     if (str.length === 4) {
       str = str.split('').reverse().join('');
     }
-    console.log(str);
+
     // Get charCodes and binary values
     let binaries = [];
     for (let i in str) {
@@ -20,14 +20,15 @@ module.exports = {
       }
       binaries.push(binary);
     }
-    console.log(binaries);
+    // console.log(binaries.length);
     if (binaries.length < 4) {
       let n = binaries.length;
+      binaries = binaries.reverse();
       while (n < 4) {
         binaries.unshift('00000000');
         n++;
       }
-      // console.log(binaries);
+      console.log(binaries);
       return binaries;
     }
     return binaries;
