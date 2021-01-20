@@ -1,22 +1,15 @@
 module.exports = {
   getBinary: (str) => {
-    // Zero pad input string
-    if (str.length < 4) {
-      let n = str.length;
-      while (n < 4) {
-        str = '0' + str;
-        n++;
-      }
+    // Reverse string if input has 4 char, else pad without reversing
+    if (str.length === 4) {
+      str = str.split('').reverse().join('');
     }
-    console.log(str);
-    // Reverse string
-    str = str.split('').reverse().join('');
     console.log(str);
     // Get charCodes and binary values
     let binaries = [];
     for (let i in str) {
       let binary = str[i].charCodeAt().toString(2);
-
+      // console.log(binary);
       // Zero pad binary
       if (binary.length < 8) {
         let n = binary.length;
@@ -25,9 +18,17 @@ module.exports = {
           n++;
         }
       }
-      // zeroPad(binary);
       binaries.push(binary);
-      // console.log(binary);
+    }
+    console.log(binaries);
+    if (binaries.length < 4) {
+      let n = binaries.length;
+      while (n < 4) {
+        binaries.unshift('00000000');
+        n++;
+      }
+      // console.log(binaries);
+      return binaries;
     }
     return binaries;
   },
