@@ -1,5 +1,5 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
-const testInput = 'Woot';
+const testInput = 'FRED';
 
 function encoder(str) {
   const binaries = getBinary(str);

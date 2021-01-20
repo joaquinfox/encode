@@ -27,3 +27,8 @@ Requirement: input 4 ASCII characters and output an encoded integer value, base 
 8. Parse the binary to an integer value base 10
 9. Get the hex representation of that value
 10. Chain the four hex representations and then convert that to a decimal. This is your final sollution.
+
+**Handle Long String**
+
+- Strings of length > 4 get bundles into 4 character segments.
+- These get reversed and passed to encode iteratively
