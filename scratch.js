@@ -104,20 +104,30 @@ const formatOutput = (arr) => {
 };
 // console.log(formatOutput(testInput3));
 
+// const zeroPad = (str) => {
+//   if (str.length < 8) {
+//     let n = str.length;
+//     while (n < 8) {
+//       str = str += '0';
+//       n++;
+//     }
+//     return str;
+//   }
+
+//   return str;
+// };
+
 const zeroPad = (str) => {
-  if (str.length < 8) {
-    let n = str.length;
-    while (n < 8) {
-      str = str += '0';
-      n++;
-    }
-    return str;
+  let n = str.length;
+  while (n % 4) {
+    str = str += '0';
+    n++;
   }
 
   return str;
 };
 
-// console.log(zeroPad('c'));
+console.log(zeroPad('abcdef'));
 
 const testInput4 = 'never odd or even';
 
@@ -136,7 +146,7 @@ const handleLongString = (str) => {
     console.log(arr[i]);
   }
 };
-console.log(handleLongString(testInput4));
+// console.log(handleLongString(testInput4));
 
 const testInput5 = ['abcd', 'efgh', 'deas&'];
 const removeLastCharInArrString = (arr) => {

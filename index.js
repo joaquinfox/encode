@@ -4,13 +4,16 @@ const testInput = 'tacocat';
 function encoder(str) {
   if (str.length > 4) {
     if (str.length % 4) {
-      // Bundle array into 4 character groups
-      arr = str + '&';
-      arr = arr.match(/..../gi);
+      let n = str.length;
+      while (n % 4) {
+        str = str += '&';
+        n++;
+      }
+      return (arr = str.match(/..../gi));
       // Remove last char
       arr[arr.length - 1] = arr[arr.length - 1].replace(/.$/, '');
     } else {
-      arr = arr.match(/..../gi);
+      return (arr = str.match(/..../gi));
     }
     for (let i = 0; i < arr.length; i++) {
       encoder(arr[i]);
