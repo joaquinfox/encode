@@ -122,7 +122,6 @@ const zeroPad = (str) => {
 const testInput4 = 'never odd or even';
 
 const handleLongString = (str) => {
-  let output = [];
   if (str.length % 4) {
     // Bundle array into 4 character groups
     arr = str + '&';
@@ -132,7 +131,10 @@ const handleLongString = (str) => {
   } else {
     arr = arr.match(/..../gi);
   }
-  return arr;
+  // return arr;
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
 };
 console.log(handleLongString(testInput4));
 

@@ -97,18 +97,14 @@ module.exports = {
     for (let i = 0; i < arr.length; i++) {
       //Get rid of commas
       arr[i] = arr[i].toString().replace(/,/g, '');
-      // console.log('no commas', arr[i]);
       // Get html value
       arr[i] = parseInt(arr[i], 2);
-      // console.log('html', arr[i]);
       // Get hexadecimal values
       arr[i] = arr[i].toString(16);
-      // console.log('toString', arr[i]);
       // Zero padding
       if (arr[i].length < 2) {
         arr[i] = '0' + arr[i];
       }
-      // console.log('zero pad', arr[i]);
       container.push(arr[i]);
     }
     return parseInt(arr.join(''), 16);
@@ -123,6 +119,9 @@ module.exports = {
     } else {
       arr = arr.match(/..../gi);
     }
-    return arr;
+    for (let i = 0; i < arr.length; i++) {
+      encoder(arr[i]);
+    }
+    // return arr;
   },
 };
