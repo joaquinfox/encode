@@ -30,5 +30,10 @@ Requirement: input 4 ASCII characters and output an encoded integer value, base 
 
 **Handle Long String**
 
-- Strings of length > 4 get bundles into 4 character segments.
-- These get reversed and passed to encode iteratively
+**_encoding_**
+
+- Strings of length > 4 get bundled into 4 character segments.
+- These get reversed.
+- if a bundle has fewer than 4 characters, it is zero padded, with a binomial '00000000'
+- each bundle is passed to the encode function and the results chained in sequence.
+- note characters in bundles are reversed but the order of bundles (corrsponding to the order of words in the original input string) are not reversed.

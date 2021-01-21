@@ -30,17 +30,8 @@ const getCharCodes = (str) => {
   }
 };
 // getCharCodes('tacocat0`');
-const handleLongString = (str) => {
-  let output = [];
-  if (str % 4) {
-  }
-  return str.match(/..../gi);
-  // return str.length % 2 ? '0' + str : str;
-  // output.push(str);
-  // return output;
-};
 
-const input2 = [30, 241, 137, 206];
+const input2 = [7, 116, 4, 19];
 function getHexCode(arr) {
   arr.forEach((i) => {
     console.log(i.toString(16));
@@ -48,3 +39,7 @@ function getHexCode(arr) {
 }
 getHexCode(input2);
 // console.log(handleLongString(input));
+function parseHex(n) {
+  console.log(parseInt(n, 16));
+}
+parseHex('07740413');

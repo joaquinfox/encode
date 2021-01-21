@@ -117,7 +117,31 @@ const zeroPad = (str) => {
   return str;
 };
 
-console.log(zeroPad('c'));
+// console.log(zeroPad('c'));
+
+const testInput4 = 'never odd or even';
+
+const handleLongString = (str) => {
+  let output = [];
+  if (str.length % 4) {
+    // Bundle array into 4 character groups
+    arr = str + '&';
+    arr = arr.match(/..../gi);
+    // Remove last char
+    arr[arr.length - 1] = arr[arr.length - 1].replace(/.$/, '');
+  } else {
+    arr = arr.match(/..../gi);
+  }
+  return arr;
+};
+console.log(handleLongString(testInput4));
+
+const testInput5 = ['abcd', 'efgh', 'deas&'];
+const removeLastCharInArrString = (arr) => {
+  arr[arr.length - 1] = arr[arr.length - 1].replace(/.$/, '');
+  return arr;
+};
+// console.log(removeLastCharInArrString(testInput5));
 /*
 x = output array      y = input array   z = input array element
 
