@@ -1,5 +1,5 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
-const testInput = 'tacocat';
+const testInput = 'tacoy';
 
 function encoder(str) {
   if (str.length > 4) {
@@ -9,15 +9,18 @@ function encoder(str) {
         str = str += '&';
         n++;
       }
-      return (arr = str.match(/..../gi));
-      // Remove last char
-      arr[arr.length - 1] = arr[arr.length - 1].replace(/.$/, '');
+      // Bunle into 4 packs
+      const arr = str.match(/..../gi);
+      // Trim off padding
+      arr[arr.length - 1] = arr[arr.length - 1].replace(/&/g, '');
+      console.log(arr);
     } else {
       return (arr = str.match(/..../gi));
     }
-    for (let i = 0; i < arr.length; i++) {
-      encoder(arr[i]);
-    }
+    // for (let i = 0; i < arr.length; i++) {
+    //   console.log(arr, arr[i]);
+    //   encoder(arr[i]);
+    // }
   } else {
     const binaries = getBinary(str);
     const formattedInput = formatInput(binaries);

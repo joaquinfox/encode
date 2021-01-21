@@ -3,7 +3,7 @@ module.exports = {
     // Reverse string if input has 4 char, else pad without reversing
     if (str.length === 4) {
       str = str.split('').reverse().join('');
-      console.log(str);
+      // console.log('FLAG', str);
     }
 
     // Get charCodes and binary values
@@ -29,7 +29,7 @@ module.exports = {
         binaries.unshift('00000000');
         n++;
       }
-      console.log(binaries);
+      // console.log('FLAG2', binaries);
       return binaries;
     }
     return binaries;
