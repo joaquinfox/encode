@@ -21,7 +21,7 @@ module.exports = {
       }
       binaries.push(binary);
     }
-    // console.log(binaries.length);
+    // console.log(binaries, binaries.length);
     if (binaries.length < 4) {
       let n = binaries.length;
       binaries = binaries.reverse();
@@ -93,7 +93,7 @@ module.exports = {
     return output;
   },
   formatOutput: (arr) => {
-    // console.log(arr);
+    // console.log('formatOutput', arr);
     let container = [];
     for (let i = 0; i < arr.length; i++) {
       //Get rid of commas
@@ -106,8 +106,10 @@ module.exports = {
       if (arr[i].length < 2) {
         arr[i] = '0' + arr[i];
       }
+      // console.log(arr[i]);
       container.push(arr[i]);
     }
+    console.log(arr);
     return parseInt(arr.join(''), 16);
     // console.log(parseInt(arr.join(''), 16));
   },

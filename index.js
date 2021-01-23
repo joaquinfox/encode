@@ -1,5 +1,5 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
-let testInput = 'abcde';
+let testInput = 'FREDy';
 
 if (testInput.length > 4) {
   handleLongString(testInput);
@@ -18,30 +18,23 @@ function handleLongString(str) {
     }
     // Bundle into 4 packs
     arr = arr.join('').match(/..../gi);
-    // console.log(arr);
-    // for (let i = 0; i < arr.length; i++) {
-    //   encoder(arr[i]);
-    // }
   }
   // HANDLE STRINGS DIVISIBLE BY 4
   else {
     arr = str.match(/..../gi);
-    // console.log(arr);
-    // for (let i = 0; i < arr.length; i++) {
-    //   encoder(arr[i]);
-    // }
   }
+  // Pass individual strings to encoder
   for (let i = 0; i < arr.length; i++) {
-    encoder(arr[i]);
+    console.log(encoder(arr[i]));
   }
 }
 
 function encoder(str) {
-  console.log('from encoder', str);
-  // const binaries = getBinary(str);
-  // const formattedInput = formatInput(binaries);
-  // const arr = encode(formattedInput);
-  // return formatOutput(arr);
+  // console.log('from encoder', str);
+  const binaries = getBinary(str);
+  const formattedInput = formatInput(binaries);
+  const arr = encode(formattedInput);
+  return formatOutput(arr);
   // formatOutput();
 }
 // console.log(encoder(testInput));
