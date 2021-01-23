@@ -3,14 +3,12 @@ module.exports = {
     // Reverse string if input has 4 char, else pad without reversing
     if (str.length === 4) {
       str = str.split('').reverse().join('');
-      // console.log('FLAG', str);
     }
 
     // Get charCodes and binary values
     let binaries = [];
     for (let i in str) {
       let binary = str[i].charCodeAt().toString(2);
-      // console.log(binary);
       // Zero pad binary
       if (binary.length < 8) {
         let n = binary.length;
@@ -21,7 +19,6 @@ module.exports = {
       }
       binaries.push(binary);
     }
-    // console.log(binaries, binaries.length);
     if (binaries.length < 4) {
       let n = binaries.length;
       binaries = binaries.reverse();
@@ -29,7 +26,6 @@ module.exports = {
         binaries.unshift('00000000');
         n++;
       }
-      // console.log('FLAG2', binaries);
       return binaries;
     }
     return binaries;
@@ -109,7 +105,7 @@ module.exports = {
       // console.log(arr[i]);
       container.push(arr[i]);
     }
-    console.log(arr);
+    // console.log(arr);
     return parseInt(arr.join(''), 16);
     // console.log(parseInt(arr.join(''), 16));
   },

@@ -1,5 +1,6 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
-let testInput = 'FREDy';
+
+let testInput = 'egad, a base tone denotes a bad age';
 
 if (testInput.length > 4) {
   handleLongString(testInput);
@@ -18,6 +19,7 @@ function handleLongString(str) {
     }
     // Bundle into 4 packs
     arr = arr.join('').match(/..../gi);
+    arr[arr.length - 1] = arr[arr.length - 1].replace(/&/g, '');
   }
   // HANDLE STRINGS DIVISIBLE BY 4
   else {
@@ -30,11 +32,9 @@ function handleLongString(str) {
 }
 
 function encoder(str) {
-  // console.log('from encoder', str);
   const binaries = getBinary(str);
   const formattedInput = formatInput(binaries);
   const arr = encode(formattedInput);
   return formatOutput(arr);
-  // formatOutput();
 }
 // console.log(encoder(testInput));
