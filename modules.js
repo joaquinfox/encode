@@ -38,7 +38,6 @@ module.exports = {
       arr[i] = arr[i].split('');
       output.push(arr[i]);
     }
-    // console.log(output);
     return output;
   },
   encode: (arr) => {
@@ -85,11 +84,9 @@ module.exports = {
       [row5 + ',' + row6],
       [row7 + ',' + row8],
     ];
-    // console.log('encoded output', output);
     return output;
   },
   formatOutput: (arr) => {
-    // console.log('formatOutput', arr);
     let container = [];
     for (let i = 0; i < arr.length; i++) {
       //Get rid of commas
@@ -102,11 +99,8 @@ module.exports = {
       if (arr[i].length < 2) {
         arr[i] = '0' + arr[i];
       }
-      // console.log(arr[i]);
       container.push(arr[i]);
     }
-    // console.log(arr);
     return parseInt(arr.join(''), 16);
-    // console.log(parseInt(arr.join(''), 16));
   },
 };

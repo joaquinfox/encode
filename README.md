@@ -34,6 +34,15 @@ Requirement: input 4 ASCII characters and output an encoded integer value, base 
 
 - Strings of length > 4 get bundled into 4 character segments.
 - These get reversed.
-- if a bundle has fewer than 4 characters, it is zero padded, with a binomial '00000000'
-- each bundle is passed to the encode function and the results chained in sequence.
-- note characters in bundles are reversed but the order of bundles (corrsponding to the order of words in the original input string) are not reversed.
+- If a bundle has fewer than 4 characters, it is zero padded, with a binomial '00000000'
+- Each bundle is passed to the encode function and the results chained in sequence.
+- Note: characters in bundles are reversed but the order of bundles (corrsponding to the order of words in the original input string) are not reversed.
+
+**_decoding_**
+
+- Given an integer, convert to a haxadecimal string.
+- Split this into 4 hex digits and parse to integer
+- Make binary, and zero pad front to 8 digits.
+- Split each binary into an array of 8 digits.
+- Scramble.
+- Reconstitute as html values and obtain the corresponding character
