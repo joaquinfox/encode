@@ -1,31 +1,47 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
-const testInput = 'tacoy';
+let testInput = 'abcde';
 
-function encoder(str) {
-  if (str.length > 4) {
-    if (str.length % 4) {
-      let n = str.length;
-      while (n % 4) {
-        str = str += '&';
-        n++;
-      }
-      // Bunle into 4 packs
-      const arr = str.match(/..../gi);
-      // Trim off padding
-      arr[arr.length - 1] = arr[arr.length - 1].replace(/&/g, '');
-      console.log(arr);
-    } else {
-      return (arr = str.match(/..../gi));
+if (testInput.length > 4) {
+  handleLongString(testInput);
+} else {
+  console.log(encoder(testInput));
+}
+
+function handleLongString(str) {
+  let arr = str.split('');
+  // HANDLE STRINGS NOT DIVISIBLE BY 4
+  if (arr.length % 4) {
+    let n = arr.length;
+    while (n % 4) {
+      arr.push('&');
+      n++;
     }
+    // Bundle into 4 packs
+    arr = arr.join('').match(/..../gi);
+    // console.log(arr);
     // for (let i = 0; i < arr.length; i++) {
-    //   console.log(arr, arr[i]);
     //   encoder(arr[i]);
     // }
-  } else {
-    const binaries = getBinary(str);
-    const formattedInput = formatInput(binaries);
-    const arr = encode(formattedInput);
-    return formatOutput(arr);
+  }
+  // HANDLE STRINGS DIVISIBLE BY 4
+  else {
+    arr = str.match(/..../gi);
+    // console.log(arr);
+    // for (let i = 0; i < arr.length; i++) {
+    //   encoder(arr[i]);
+    // }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    encoder(arr[i]);
   }
 }
-console.log(encoder(testInput));
+
+function encoder(str) {
+  console.log('from encoder', str);
+  // const binaries = getBinary(str);
+  // const formattedInput = formatInput(binaries);
+  // const arr = encode(formattedInput);
+  // return formatOutput(arr);
+  // formatOutput();
+}
+// console.log(encoder(testInput));

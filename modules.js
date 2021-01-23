@@ -109,5 +109,6 @@ module.exports = {
       container.push(arr[i]);
     }
     return parseInt(arr.join(''), 16);
+    // console.log(parseInt(arr.join(''), 16));
   },
 };
