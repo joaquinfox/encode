@@ -1,4 +1,4 @@
-const decodeTestInput = [267659346];
+const decodeTestInput = [15794160];
 
 function decoder(inputArr) {
   for (let i = 0; i < inputArr.length; i++) {
@@ -29,6 +29,8 @@ function decoder(inputArr) {
           i = '0' + i;
           n++;
         }
+        zeroPadded.push(i);
+      } else {
         zeroPadded.push(i);
       }
       // return zeroPadded;

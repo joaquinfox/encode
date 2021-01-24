@@ -1,6 +1,6 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
 
-const testInput = 'bird';
+const testInput = 'AB C';
 
 if (testInput.length > 4) {
   handleLongString(testInput);
