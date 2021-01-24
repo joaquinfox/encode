@@ -1,4 +1,4 @@
-const decodeTestInput = [251792692, 987654321];
+const decodeTestInput = [267659346];
 
 function decoder(inputArr) {
   for (let i = 0; i < inputArr.length; i++) {
@@ -18,7 +18,7 @@ function decoder(inputArr) {
     charCodes.forEach((i) => {
       return binaries.push(i.toString(2));
     });
-    // console.log('binaries', binaries);
+    console.log('binaries', binaries);
 
     // Zero pad binary numbers
     let zeroPadded = [];
@@ -33,7 +33,7 @@ function decoder(inputArr) {
       }
       // return zeroPadded;
     });
-    // console.log('zeroPadded', zeroPadded);
+    console.log('zeroPadded', zeroPadded);
 
     // Split each binary into arrays of 8 digits
     let sectionedBinaries = [];

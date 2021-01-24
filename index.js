@@ -1,6 +1,6 @@
 const { getBinary, formatInput, encode, formatOutput } = require('./modules');
 
-const testInput = 'egad, a base tone denotes a bad age';
+const testInput = 'bird';
 
 if (testInput.length > 4) {
   handleLongString(testInput);
