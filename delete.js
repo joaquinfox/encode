@@ -1,18 +1,18 @@
-const decodeTestInput = [267487694, 999999999];
+const decodeTestInput = [251792692];
 
 function decoder(inputArr) {
   for (let i = 0; i < inputArr.length; i++) {
     // Make hexadecimal
     let hex = inputArr[i].toString(16);
     hex = (hex.length < 8 ? '0' + hex : hex).match(/../g);
-    // console.log(hex);
+    // console.log('hex', hex);
 
     // Get charCodes
     let charCodes = [];
     hex.forEach((i) => {
       return charCodes.push(parseInt(i, 16));
     });
-    // console.log(charCodes);
+    // console.log('charCodes', charCodes);
     // Make binary numbers
     let binaries = [];
     charCodes.forEach((i) => {
@@ -30,12 +30,10 @@ function decoder(inputArr) {
           n++;
         }
         zeroPadded.push(i);
-        console.log(i);
       }
-      // console.log(zeroPadded);
       // return zeroPadded;
     });
-    console.log(zeroPadded);
+    // console.log('zeroPadded', zeroPadded);
 
     // Split each binary into arrays of 8 digits
     let sectionedBinaries = [];
@@ -43,46 +41,58 @@ function decoder(inputArr) {
       zeroPadded[i] = zeroPadded[i].split('');
       sectionedBinaries.push(zeroPadded[i]);
     }
-    // console.log('flag1', sectionedBinaries);
+    // console.log('sectionedBinaries', sectionedBinaries);
     // Unscramble
     let output = [[], [], [], []];
-    // let arr = sectionedBinaries;
-    // output[0][0] = arr[0][0];
-    // output[1][0] = arr[0][1];
-    // output[2][0] = arr[0][2];
-    // output[3][0] = arr[0][3];
-    // output[0][1] = arr[0][4];
-    // output[1][1] = arr[0][5];
-    // output[2][1] = arr[0][6];
-    // output[3][1] = arr[0][7];
+    let arr = sectionedBinaries;
+    output[0][0] = arr[0][0];
+    output[1][0] = arr[0][1];
+    output[2][0] = arr[0][2];
+    output[3][0] = arr[0][3];
+    output[0][1] = arr[0][4];
+    output[1][1] = arr[0][5];
+    output[2][1] = arr[0][6];
+    output[3][1] = arr[0][7];
 
-    // output[0][2] = arr[1][0];
-    // output[1][2] = arr[1][1];
-    // output[2][2] = arr[1][2];
-    // output[3][2] = arr[1][3];
-    // output[0][3] = arr[1][4];
-    // output[1][3] = arr[1][5];
-    // output[2][3] = arr[1][6];
-    // output[3][3] = arr[1][7];
+    output[0][2] = arr[1][0];
+    output[1][2] = arr[1][1];
+    output[2][2] = arr[1][2];
+    output[3][2] = arr[1][3];
+    output[0][3] = arr[1][4];
+    output[1][3] = arr[1][5];
+    output[2][3] = arr[1][6];
+    output[3][3] = arr[1][7];
 
-    // output[0][4] = arr[2][0];
-    // output[1][4] = arr[2][1];
-    // output[2][4] = arr[2][2];
-    // output[3][4] = arr[2][3];
-    // output[0][5] = arr[2][4];
-    // output[1][5] = arr[2][5];
-    // output[2][5] = arr[2][6];
-    // output[3][5] = arr[2][7];
+    output[0][4] = arr[2][0];
+    output[1][4] = arr[2][1];
+    output[2][4] = arr[2][2];
+    output[3][4] = arr[2][3];
+    output[0][5] = arr[2][4];
+    output[1][5] = arr[2][5];
+    output[2][5] = arr[2][6];
+    output[3][5] = arr[2][7];
 
-    // output[0][6] = arr[3][0];
-    // output[1][6] = arr[3][1];
-    // output[2][6] = arr[3][2];
-    // output[3][6] = arr[3][3];
-    // output[0][7] = arr[3][4];
-    // output[1][7] = arr[3][5];
-    // output[2][7] = arr[3][6];
-    // output[3][7] = arr[3][7];
-    // console.log('output', output);
+    output[0][6] = arr[3][0];
+    output[1][6] = arr[3][1];
+    output[2][6] = arr[3][2];
+    output[3][6] = arr[3][3];
+    output[0][7] = arr[3][4];
+    output[1][7] = arr[3][5];
+    output[2][7] = arr[3][6];
+    output[3][7] = arr[3][7];
+    // FORMAT OUTPUT
+    for (let i = 0; i < output.length; i++) {
+      // Get rid of commas
+      output[i] = output[i].toString().replace(/,/g, '');
+
+      // Get html values
+      output[i] = parseInt(output[i], 2);
+
+      // Get characters
+      output[i] = String.fromCharCode(output[i]);
+    }
+    // Reverse and join
+    console.log('output', output.reverse().join(''));
   }
 }
 console.log(decoder(decodeTestInput));
