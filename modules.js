@@ -28,17 +28,18 @@ module.exports = {
       }
       return binaries;
     }
+    // console.log('binaries', binaries);
     return binaries;
   },
 
   formatInput: (arr) => {
     // Separate elements
-    const output = [];
+    const input = [];
     for (let i = 0; i < arr.length; i++) {
       arr[i] = arr[i].split('');
-      output.push(arr[i]);
+      input.push(arr[i]);
     }
-    return output;
+    return input;
   },
   encode: (arr) => {
     // remix elements to obtain new (encoded) binaries
